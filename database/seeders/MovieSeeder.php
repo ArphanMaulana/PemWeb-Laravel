@@ -1,0 +1,22 @@
+<?php
+
+  namespace Database\Seeders;
+
+  use App\Models\Genre;
+  use App\Models\Movie;
+  use Illuminate\Database\Seeder;
+
+  class MovieSeeder extends Seeder
+  {
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+      Movie::factory()->count(16)->create()->each(function ($movie) {
+        $movie->update([
+          'genre_id' => Genre::inRandomOrder()->first()->id,
+        ]);
+      });
+    }
+  }
