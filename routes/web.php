@@ -8,9 +8,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/movies');  // Redirect root URL ke /movies
+Route::redirect('/', '/movies');
 
-// Rute CRUD untuk Movie dengan menggunakan resource controller
 Route::resource('roles', RoleController::class);
 Route::resource('users', UserController::class);
 Route::resource('casts', CastController::class);
